@@ -43,5 +43,15 @@ namespace DapWebApi.Models
             }
         }
 
+        public static IEnumerable<dynamic> GetBrandsFromDb()
+        {
+            using (var conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+                var resultList = conn.Query<CountryBrand>("[dbo].[spGetBrands]", commandType: CommandType.StoredProcedure);
+                return resultList;
+            }
+        }
+
     }
 }

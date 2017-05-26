@@ -27,5 +27,11 @@ namespace DapWebApi.Controllers
         {
             return DapModels.GetCountriesFromDb();
         }
+
+        [HttpGet]
+        public IEnumerable<dynamic> GetBrands()
+        {
+            return DapModels.GetBrandsFromDb();
+        }
     }
 }
